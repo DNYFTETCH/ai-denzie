@@ -1,0 +1,50 @@
+:root{
+  --bg-0:#071428; --bg-1:#09283f; --panel:#0f2230; --accent:#00c6ff; --accent2:#6ef0c3;
+  --muted:#9fb7c9; --glass: rgba(255,255,255,0.03);
+  --max-width:1100px;
+  font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-0),var(--bg-1));color:#e9f7ff}
+.container{max-width:var(--max-width);margin:0 auto;padding:18px;height:100vh;display:flex;flex-direction:column;gap:16px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);border-radius:10px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#042}
+.brand-text .title{font-weight:700;font-size:16px}
+.brand-text .subtitle{font-size:12px;color:var(--muted)}
+.top-actions .muted{color:var(--muted)}
+
+.layout{display:flex;gap:16px;flex:1;align-items:stretch}
+.panel{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:14px;border-radius:12px;box-shadow:0 10px 38px rgba(0,0,0,0.5);flex-basis:0}
+.studio{flex:1;display:flex;flex-direction:column;gap:12px;min-width:360px}
+.preview{width:360px;display:flex;flex-direction:column;gap:12px}
+
+.label{font-size:13px;color:var(--muted);margin-bottom:6px}
+textarea{width:100%;height:120px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;padding:10px;color:inherit;font-size:15px;resize:vertical}
+select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+.row{display:flex;gap:12px;align-items:center}
+.col{flex:1}
+.actions{display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042;border:0}
+.btn.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--muted)}
+
+.meter{height:10px;background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden}
+.meter-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 120ms linear}
+
+.wavewrap{height:110px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.02);overflow:hidden}
+#waveCanvas{width:100%;height:100%}
+
+.chatlog{max-height:170px;overflow:auto;border-radius:10px;padding:8px;background:rgba(0,0,0,0.08);font-size:14px}
+.chat{padding:8px;border-radius:8px;margin-bottom:8px}
+.chat.ai{background:linear-gradient(90deg,rgba(0,198,255,0.05),rgba(110,240,195,0.02))}
+.small{font-size:13px}
+.muted{color:var(--muted)}
+.footer{font-size:13px;color:var(--muted);text-align:center;padding:6px}
+
+/* Responsive */
+@media(max-width:900px){
+  .layout{flex-direction:column}
+  .preview{width:100%}
+}
