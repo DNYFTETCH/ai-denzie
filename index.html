@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Denzie — Studio Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">DZ</div>
+        <div class="brand-text">
+          <h1>AI Denzie</h1>
+          <div class="muted">Expressive Voice Studio — ElevenLabs-style dashboard</div>
+        </div>
+      </div>
+
+      <nav class="top-actions">
+        <button id="btn-train" class="btn outline">Train (Demo)</button>
+        <select id="providerSelect" title="Provider">
+          <option value="local">Browser Demo</option>
+          <option value="eleven">ElevenLabs (server)</option>
+          <option value="openai">OpenAI TTS (server)</option>
+          <option value="azure">Azure Speech (server)</option>
+        </select>
+      </nav>
+    </header>
+
+    <main class="main-grid">
+      <!-- LEFT: studio controls -->
+      <section class="panel studio">
+        <h2>Studio</h2>
+
+        <label class="label">Voice Preset</label>
+        <div class="row gap">
+          <select id="voicePreset">
+            <option value="denzie-default">Denzie Classic</option>
+            <option value="denzie-warm">Denzie Warm</option>
+            <option value="denzie-neutral">Denzie Neutral</option>
+          </select>
+          <select id="styleSelect" title="Style">
+              <option value="natural">Natural</option>
+              <option value="professional">Professional</option>
+              <option value="calm">Calm</option>
+              <option value="energetic">Energetic</option>
+              <option value="real-life">Real-life conversation</option>
+          </select>
+        </div>
+
+        <label class="label">Input Text (use bracketed instructions)</label>
+        <textarea id="textInput" placeholder='Type text. Use [whispers], [giggles], [sarcastically], [pause] for expressive cues.'></textarea>
+
+        <div class="row gap" style="margin-top:10px">
+          <button id="btn-generate" class="btn primary">Generate & Play</button>
+          <button id="btn-download" class="btn ghost">Download</button>
+        </div>
+
+        <div class="muted small" style="margin-top:8px">Tip: For realistic expressive clones use server provider and valid API keys.</div>
+      </section>
+
+      <!-- CENTER: waveform & visual -->
+      <section class="panel visual">
+        <h2>Waveform / Live</h2>
+        <div id="waveWrap" class="wavewrap">
+          <canvas id="waveCanvas"></canvas>
+          <div id="meter" class="meter"><div id="meterFill" style="width:2%"></div></div>
+        </div>
+
+        <div class="row stats">
+          <div class="stat">
+            <div class="stat-title">Last Audio</div>
+            <div id="lastInfo" class="muted">No audio yet</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Mode</div>
+            <div id="modeInfo" class="muted">Browser Demo</div>
+          </div>
+        </div>
+
+        <audio id="audioPlayer" controls style="width:100%;margin-top:12px;display:none"></audio>
+      </section>
+
+      <!-- RIGHT: console & integrations -->
+      <aside class="panel sidebar">
+        <h2>Console & Integration</h2>
+        <div class="small muted">Server endpoint (example): <code>/api/generate</code></div>
+
+        <label class="label" style="margin-top:10px">API Key (server only)</label>
+        <input id="apiKey" placeholder="Paste server API key (not required for demo)">
+
+        <div style="margin-top:12px">
+          <button id="btn-example" class="btn ghost">Show example server code</button>
+        </div>
+
+        <h3 style="margin-top:12px">Activity</h3>
+        <pre id="log" class="log">Ready.</pre>
+      </aside>
+    </main>
+
+    <footer class="footer muted">AI Denzie • Use responsibly • © 2025</footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
